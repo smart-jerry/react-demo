@@ -27,18 +27,18 @@ module.exports = {
 			template: './src/index.html', // 自定义模板文件地址
 			inject:true // script标签位于html文件的 body 底部
 		}),
-		new CopyWebpackPlugin([
+		/*new CopyWebpackPlugin([
 			{
 				context: path.resolve(__dirname, 'src/'), //上下文 ，绝对路径，默认使用当然路径
-				from: 'data/*',
+				from: 'data/!*',
 				to: './'
 			},
 			{
 				context: path.resolve(__dirname, 'src/'), //上下文 ，绝对路径，默认使用当然路径
-				from: 'public/*',
+				from: 'public/!*',
 				to: './'
 			},
-		])
+		])*/
 	],
 	module : {
 		rules : [
@@ -64,7 +64,6 @@ module.exports = {
 			},
 		]
 	},
-	// webpack热部署的另一种启动方式, 配合package中的start-dev命令一起使用, 访问目录是dis文件夹
 	devServer : {
 		contentBase : './dist',
 		historyApiFallback:true
