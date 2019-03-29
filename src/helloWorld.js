@@ -46,7 +46,6 @@ class Welcome extends React.Component {
 		console.log(this.state.demoFor,'===========newFor')
 	}
 	render() {
-		let tempStyle = {'text-decoration':'line-through'};
 		return (
 			<div>
 				<h1>{this.props.demos}</h1>
@@ -58,7 +57,8 @@ class Welcome extends React.Component {
 					{
 						this.state.demoFor.map((item)=>
 							<li>
-								<span className={(!item.isComplate) ? "" : "line"}>{item.id}-{item.name}</span>
+								{/*className={(!item.isComplate) ? "" : "line"}*/}
+								<span style={(!item.isComplate) ? {'text-decoration':'none'} : {'text-decoration':'line-through'}}>{item.id}-{item.name}</span>
 								<input type="button" onClick={this.del.bind(this,item.id)} value="delete" />
 								<input type="button" onClick={this.done.bind(this,item.id)} value="完成" />
 							</li>
